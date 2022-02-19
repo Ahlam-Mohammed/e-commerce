@@ -4,7 +4,7 @@ const axios  = axioss.create(
         baseURL: 'https://dummyjson.com/'
     });
 
-const getAllProducts = ()=> axios.get('products');
+const getAllProducts = () => axios.get('products');
 const getProductByID = (id) => axios.get(`products/${id}`);
 
 
