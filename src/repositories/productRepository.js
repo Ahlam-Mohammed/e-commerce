@@ -5,7 +5,10 @@ const axios  = axioss.create(
     });
 
 const getAllProducts = ()=> axios.get('products');
+const getProductByID = (id) => axios.get(`products/${id}`);
+
 
 module.exports = {
     getAllProducts,
+    getProductByID
 }
