@@ -1,4 +1,4 @@
-const { getAllProducts, getProductByID } = require('../repositories/productRepository');
+const { getAllProducts, getProductByID, searchProduct } = require('../repositories/productRepository');
 
 // Get All Products
 const products = async (req, res, next) => {
@@ -22,7 +22,19 @@ const detailsProduct = async (req, res, next) => {
     }
 }
 
+// Search Products
+const search = async (req, res, next) => {
+    const query = req.query.q;
+    try {
+        const { data } = await searchProduct(query);
+        res.json({...data});
+    } catch (error) {
+        res.json({error})
+    }
+}
+
 module.exports = {
     products,
-    detailsProduct
+    detailsProduct,
+    search
 }

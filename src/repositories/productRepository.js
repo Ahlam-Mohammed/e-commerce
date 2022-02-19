@@ -6,9 +6,11 @@ const axios  = axioss.create(
 
 const getAllProducts = () => axios.get('products');
 const getProductByID = (id) => axios.get(`products/${id}`);
+const searchProduct  = (query) => axios.get(`products/search?q=${query}`)
 
 
 module.exports = {
     getAllProducts,
-    getProductByID
+    getProductByID,
+    searchProduct
 }
