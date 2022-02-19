@@ -1,7 +1,7 @@
-const { getAllProducts } = require('../repositories/productRepository');
+const { getAllProducts, getProductByID } = require('../repositories/productRepository');
 
 // Get All Products
-const getProducts = async (req, res, next) => {
+const products = async (req, res, next) => {
     try{
         const { data } = await getAllProducts();
         res.json({...data});
@@ -11,6 +11,18 @@ const getProducts = async (req, res, next) => {
     }
 }
 
+// Get details Product
+const detailsProduct = async (req, res, next) => {
+    const ID = req.params.id;
+    try {
+        const { data } = await getProductByID(ID);
+        res.json({...data});
+    } catch (error) {
+        res.json({error})
+    }
+}
+
 module.exports = {
-    getProducts,
+    products,
+    detailsProduct
 }
