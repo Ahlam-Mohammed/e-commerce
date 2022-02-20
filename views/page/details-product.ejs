@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <%- include('../layout/head.ejs'); %>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <%- include('../layout/header.ejs') %> 
+
+    <!-- Landing Section -->
+    <section>
+        <%- include('../widget/landing.ejs') %> 
+    </section>
+
+    <main>
+
+        <section>
+            <div class="container-lg py-3">
+                <div class="row mb-2">
+                    <header class="d-flex justify-content-center mb-lg-4">
+                        <h1 class="text-primary fw-bold d-inline-block"><span class="text-dark"> <%= product.title %> </span></h1>
+                    </header>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-8 m-auto">
+                        <div class="card shadow mb-3">
+                            <div class="row g-0">
+                                <div>
+                                    <img src="<%= product.thumbnail %>" class="img-fluid rounded-start card-img-top" alt="...">
+                                </div>
+                                <div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%= product.title %></h5><hr>
+                                        <h3 class="mb-0 fs-6 text-primary">Brand: <span class="text-black-50"><%= product.brand %></span></h3><hr>
+                                        <h3 class="mb-0 fs-6 text-primary">Price: <span class="text-black-50"><%= product.price %></span></h3><hr>
+                                        <h3 class="mb-0 fs-6 text-primary">DiscountPercentage: <span class="text-black-50"><%= product.discountPercentage %></span></h3><hr>
+                                        <h3 class="mb-0 fs-6 text-primary">Rating: <span class="text-black-50"><%= product.rating %></span></h3><hr>
+                                        <h3 class="mb-0 fs-6 text-primary">Category: <span class="text-black-50"><%= product.category %></span></h3><hr>
+                                        <p class="card-text"><%= product.description %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer Section -->
+    <%- include('../layout/footer.ejs'); %>
+    
+    <!-- Script File -->
+    <%- include('../layout/script.ejs'); %>
+</body>
+</html>

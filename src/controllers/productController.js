@@ -16,7 +16,7 @@ const detailsProduct = async (req, res, next) => {
     const ID = req.params.id;
     try {
         const { data } = await getProductByID(ID);
-        res.json({...data});
+        res.render("page/details-product", {product: data});
     } catch (error) {
         res.json({error})
     }
