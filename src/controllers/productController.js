@@ -4,7 +4,7 @@ const { getAllProducts, getProductByID, searchProduct } = require('../repositori
 const products = async (req, res, next) => {
     try{
         const { data } = await getAllProducts();
-        res.json({...data});
+        res.render("page/products", {products: data.products});
     }
     catch (error){
         res.json({error});
