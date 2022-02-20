@@ -31,10 +31,49 @@
     <main>
 
       <!-- Categories Section -->
-      <%- include('./widget/category.ejs') %> 
+      <div class="container px-4 py-5">
+        <header class="d-flex justify-content-between border-bottom align-items-center">
+            <h2 class="pb-2">Categories</h2>
+            <a href="/categories"><span class="text-end d-block text-primary">View All</span></a>
+        </header>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <% for( let index = 0; index < 5; index++ ) { %>
+                <div class="list-group">
+                    <a href="/products/categories/<%= categories[index] %>" class="list-group-item list-group-item-action"><%= categories[index] %></a>
+                </div>
+            <% } %>
+        </div>
+      </div>
 
       <!-- Products Section -->
-      <%- include('./widget/product-home.ejs') %> 
+      <div class="container px-4 py-5">
+        <header class="d-flex justify-content-between border-bottom align-items-center">
+            <h2 class="pb-2">Products</h2>
+            <a href="/products"><span class="text-end d-block text-primary">View All</span></a>
+        </header>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <% products.slice(0,4).forEach(element => { %>
+            <div class="col-lg-6 col-12">
+                <div class="card shadow mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="<%= element.thumbnail %>" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= element.title %></h5>
+                                <h3 class="mb-0 fs-6"><%= element.price %> </h3></strong>
+                                <p class="card-text"><%= element.description %></p>
+                                <p class="card-text"><small class="text-muted"><%= element.category %></small></p>
+                                <a href="/product/<%=element.id %>" class="stretched-link">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+      </div>
 
     </main>
     
