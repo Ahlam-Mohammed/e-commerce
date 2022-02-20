@@ -4,6 +4,9 @@ const router          = express.Router();
 const { products, detailsProduct, search }    = require('../controllers/productController');
 const { categories, detailsCategory }         = require('../controllers/categoryController')
 
+router.get('/', (req, res, next) => {
+    res.render('index')
+})
 
 /**
  * Products Routers.

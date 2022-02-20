@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <%- include('../layout/head.ejs'); %>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <% include('../layout/header.ejs') %> 
+
+    <!-- Landing Section -->
+    <section>
+        <% include('../widget/landing.ejs') %> 
+    </section>
+
+    <main>
+
+        <!-- Categories Section -->
+        <% include('../widget/category.ejs') %> 
+
+    </main>
+    
+    <!-- Footer Section -->
+    <%- include('../layout/footer.ejs'); %>
+    
+    <!-- Script File -->
+    <%- include('../layout/script.ejs'); %>
+</body>
+</html>
