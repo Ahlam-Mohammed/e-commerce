@@ -4,7 +4,7 @@ const { getAllCategories, getAllProductByCategory } = require('../repositories/c
 const categories = async (req, res, next) => {
     try {
         const { data } = await getAllCategories();
-        res.render('page/categories', {categories: data})
+        res.json({...data});
     } catch (error) {
         res.json({error});
     }
