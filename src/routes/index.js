@@ -16,7 +16,6 @@ router.get('/', index);
  */
 router.get('/products', products);
 router.get('/product/:id', detailsProduct);
-// router.get('/products/search', search);
 
 /**
  * Categories Routers.

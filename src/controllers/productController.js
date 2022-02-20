@@ -28,7 +28,6 @@ const search = async (req, res, next) => {
     try {
         const { data } = await searchProduct(query);
         res.render("page/products", {products: data.products});
-        // res.json({...data});
     } catch (error) {
         res.json({error})
     }
