@@ -21,17 +21,29 @@
 <body>
 
     <!-- Header Section -->
-    <% include('../layout/header.ejs') %> 
+    <%- include('../layout/header.ejs') %> 
 
     <!-- Landing Section -->
     <section>
-        <% include('../widget/landing.ejs') %> 
+        <%- include('../widget/landing.ejs') %> 
     </section>
 
     <main>
 
         <!-- Categories Section -->
-        <% include('../widget/category.ejs') %> 
+        <div class="container px-4 py-5">
+            <header class="d-flex justify-content-between border-bottom align-items-center">
+                <h2 class="pb-2">Categories</h2>
+                <!-- <a href=""><span class="text-end d-block text-primary">View All</span></a> -->
+            </header>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                <% for( let index = 0; index < categories.length; index++ ) { %>
+                    <div class="list-group">
+                        <a href="/products/categories/<%= categories[index] %>" class="list-group-item list-group-item-action"><%= categories[index] %></a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
 
     </main>
     
