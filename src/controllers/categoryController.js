@@ -15,7 +15,7 @@ const detailsCategory = async (req, res, next) => {
     const category = req.params.category;
     try {
         const { data } = await getAllProductByCategory(category);
-        res.json({...data});
+        res.render('page/products', {products: data.products})
     } catch (error) {
         res.json({error});
     }
