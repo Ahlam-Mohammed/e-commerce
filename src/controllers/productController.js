@@ -24,10 +24,11 @@ const detailsProduct = async (req, res, next) => {
 
 // Search Products
 const search = async (req, res, next) => {
-    const query = req.query.q;
+    const query = req.body.data;
     try {
         const { data } = await searchProduct(query);
-        res.json({...data});
+        res.render("page/products", {products: data.products});
+        // res.json({...data});
     } catch (error) {
         res.json({error})
     }

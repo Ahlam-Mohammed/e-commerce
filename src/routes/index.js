@@ -6,20 +6,28 @@ const { categories, detailsCategory }         = require('../controllers/category
 
 const {index} = require('../controllers/homeController');
 
-router.get('/', index)
+/**
+ * Home Router.
+ */
+router.get('/', index);
 
 /**
  * Products Routers.
  */
 router.get('/products', products);
 router.get('/product/:id', detailsProduct);
-router.get('/products/search', search);
+// router.get('/products/search', search);
 
 /**
  * Categories Routers.
  */
 router.get('/categories', categories);
 router.get('/products/categories/:category', detailsCategory);
+
+/**
+ * Search Router.
+ */
+router.post('/search' ,search)
 
 
 module.exports = router;
