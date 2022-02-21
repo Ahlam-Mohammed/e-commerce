@@ -1,8 +1,8 @@
-const express         = require('express');
-const router          = express.Router();
+const express = require('express');
+const router  = express.Router();
 
-const { products, detailsProduct, search } = require('../controllers/productController');
-const { categories, detailsCategory }      = require('../controllers/categoryController');
+const productController  = require('../controllers/productController');
+const categoryController = require('../controllers/categoryController');
 
 const {index} = require('../controllers/homeController');
 
@@ -14,19 +14,19 @@ router.get('/', index);
 /**
  * Products Routers.
  */
-router.get('/products', products);
-router.get('/product/:id', detailsProduct);
+router.get('/products', productController.products);
+router.get('/product/:id', productController.detailsProduct);
 
 /**
  * Categories Routers.
  */
-router.get('/categories', categories);
-router.get('/products/categories/:category', detailsCategory);
+router.get('/categories', categoryController.categories);
+router.get('/products/categories/:category', categoryController.detailsCategory);
 
 /**
  * Search Router.
  */
-router.post('/search' ,search)
+router.post('/search' ,productController.search)
 
 
 module.exports = router;
